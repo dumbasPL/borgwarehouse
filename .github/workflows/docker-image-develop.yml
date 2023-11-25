@@ -1,9 +1,9 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image for Develop Branch
 
 on:
     push:
         branches:
-            - 'main'
+            - 'develop'
 
 # allow forks to override the dockerhub namespace with one of their own
 env:
@@ -30,4 +30,4 @@ jobs:
                   context: .
                   push: true
                   platforms: linux/amd64,linux/arm/v7,linux/arm64/v8
-                  tags: ${{ env.DOCKERHUB_NAMESPACE }}/borgwarehouse:latest
+                  tags: ${{ env.DOCKERHUB_NAMESPACE }}/borgwarehouse:develop
